@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { signIn, confirmSignIn } from 'aws-amplify/auth'
 import { useNavigate } from 'react-router-dom'
+import { deviceService } from '../../services/deviceService'
 
 const SignIn = ({ onSwitchToSignUp, onSwitchToResetPassword }) => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToResetPassword }) => {
   const [showPassword, setShowPassword] = useState(false)
   const [mfaStep, setMfaStep] = useState(false)
   const [rememberMe, setRememberMe] = useState(false)
+  const [rememberDevice, setRememberDevice] = useState(false)
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -132,6 +134,11 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToResetPassword }) => {
       })
 
       if (isSignedIn) {
+        // デバイス記憶が有効な場合はデバイスを記憶
+        if (rememberDevice) {
+          await deviceService.rememberCurrentDevice()
+          deviceService.setDeviceRemembered(true)
+        }
         navigate('/dashboard')
       }
     } catch (error) {
@@ -187,6 +194,19 @@ const SignIn = ({ onSwitchToSignUp, onSwitchToResetPassword }) => {
             <small className="help-text">
               Google Authenticator、Authy などの認証アプリで生成されたコードを入力してください
             </small>
+          </div>
+
+          <div className="form-group checkbox-group">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={rememberDevice}
+                onChange={(e) => setRememberDevice(e.target.checked)}
+                disabled={loading}
+              />
+              <span className="checkmark"></span>
+              このデバイスを信頼済みとして記憶する（次回からMFA認証をスキップ）
+            </label>
           </div>
 
           <button

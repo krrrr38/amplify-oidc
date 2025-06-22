@@ -1,0 +1,40 @@
+{
+  "auth": {
+    "aws_region": "ap-northeast-1",
+    "user_pool_id": "${USER_POOL_ID}",
+    "user_pool_client_id": "${USER_POOL_CLIENT_ID}",
+    "identity_pool_id": "",
+    "password_policy": {
+      "min_length": 8,
+      "require_lowercase": true,
+      "require_uppercase": true,
+      "require_numbers": true,
+      "require_symbols": true
+    },
+    "oauth": {
+      "domain": "${COGNITO_DOMAIN}.auth.ap-northeast-1.amazoncognito.com",
+      "scope": [
+        "openid",
+        "email",
+        "profile"
+      ],
+      "redirect_sign_in_uri": [
+        "cognitosample://auth/callback"
+      ],
+      "redirect_sign_out_uri": [
+        "cognitosample://auth/logout"
+      ],
+      "response_type": "code"
+    },
+    "mfa_configuration": "OPTIONAL",
+    "mfa_types": [
+      "TOTP"
+    ],
+    "username_attributes": [
+      "email"
+    ],
+    "user_verification_types": [
+      "email"
+    ]
+  }
+}

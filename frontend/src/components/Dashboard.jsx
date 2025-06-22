@@ -52,9 +52,17 @@ const Dashboard = () => {
         <p>
           セキュリティを強化するため、MFA (多要素認証) の設定を推奨します。
         </p>
-        <button className="button secondary" onClick={handleMFASetup}>
-          MFA TOTP 設定
-        </button>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <button className="button secondary" onClick={handleMFASetup}>
+            MFA TOTP 設定
+          </button>
+          <button 
+            className="button secondary" 
+            onClick={() => navigate('/device-settings')}
+          >
+            デバイス設定
+          </button>
+        </div>
       </div>
 
       <div className="card">

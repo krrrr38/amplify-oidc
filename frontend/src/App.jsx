@@ -8,6 +8,7 @@ import AuthCallback from './components/Auth/AuthCallback'
 import AuthLogout from './components/Auth/AuthLogout'
 import ConfirmSignUp from './components/Auth/ConfirmSignUp'
 import MFASetup from './components/Auth/MFASetup'
+import DeviceSettings from './components/Auth/DeviceSettings'
 import ProtectedRoute from './components/ProtectedRoute'
 import './App.css'
 
@@ -33,6 +34,14 @@ function App() {
           element={
             <ProtectedRoute>
               <MFASetup />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/device-settings" 
+          element={
+            <ProtectedRoute>
+              <DeviceSettings onClose={() => window.history.back()} />
             </ProtectedRoute>
           } 
         />

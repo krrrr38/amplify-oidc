@@ -5,9 +5,11 @@ AWS Cognito を使用した React アプリケーションのサンプルです�
 ## 機能
 
 - **AWS Cognito ユーザープール**: ユーザー認証・認可
-- **MFA TOTP**: 時間ベースワンタイムパスワード認証
+- **MFA TOTP**: 時間ベースワンタイムパスワード認証（デバイス記憶機能付き）
 - **独自の日本語ログイン画面**: 完全カスタムの認証UI
+- **外部IdP連携**: Google、Microsoft等のOIDCフェデレーション
 - **React フロントエンド**: モダンな SPA
+- **Android対応**: Amplify Android SDK設定済み
 - **Terraform**: インフラストラクチャ as Code
 
 ## プロジェクト構造
@@ -17,16 +19,22 @@ cognito-sample/
 ├── infrastructure/          # Terraform設定
 │   ├── main.tf             # プロバイダー設定
 │   ├── variables.tf        # 変数定義
-│   ├── cognito.tf          # Cognitoリソース
+│   ├── cognito.tf          # Cognitoリソース（外部IdP含む）
 │   ├── outputs.tf          # 出力値
 │   └── terraform.tfvars    # 変数値
 ├── frontend/               # Reactアプリケーション
 │   ├── src/
 │   │   ├── components/     # Reactコンポーネント
-│   │   ├── services/       # API呼び出し
+│   │   │   └── Auth/       # 認証関連（独自UI）
+│   │   ├── services/       # API呼び出し（デバイス管理含む）
 │   │   └── hooks/          # カスタムフック
 │   ├── package.json
 │   └── vite.config.js
+├── android-config/         # Android設定ファイル
+│   ├── amplify_outputs.json
+│   ├── MainActivity.kt
+│   ├── build.gradle.kts
+│   └── AndroidManifest.xml
 └── assets/                 # 静的ファイル
 ```
 
@@ -54,6 +62,7 @@ cp .env.example .env
 ```
 VITE_USER_POOL_ID=us-west-2_xxxxxxxxx
 VITE_USER_POOL_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxx
+VITE_COGNITO_DOMAIN=your-cognito-domain
 ```
 
 ### 3. フロントエンドの起動
