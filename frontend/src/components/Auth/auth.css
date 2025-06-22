@@ -1,0 +1,389 @@
+/* 認証画面共通スタイル */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+}
+
+.auth-logo {
+  background: #232f3e;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.auth-logo h1 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.auth-logo p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.auth-tabs {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.auth-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6c757d;
+}
+
+.auth-tab:hover {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.auth-tab.active {
+  background: white;
+  color: #232f3e;
+  border-bottom: 2px solid #ffa724;
+}
+
+.auth-form {
+  padding: 30px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h2 {
+  margin: 0 0 10px 0;
+  color: #232f3e;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.auth-header p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #232f3e;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ffa724;
+  box-shadow: 0 0 0 3px rgba(255, 167, 36, 0.1);
+}
+
+.form-group input.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-group input:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.password-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input input {
+  padding-right: 60px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.password-toggle:hover {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+.password-toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.help-text {
+  color: #6c757d;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  line-height: 1.4;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #495057;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #ffa724 0%, #ffb84d 100%);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ffb84d 0%, #ffa724 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 167, 36, 0.3);
+}
+
+.submit-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.auth-footer p {
+  margin: 10px 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #ffa724;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+  font-size: 14px;
+  margin: 0 5px;
+  transition: color 0.2s ease;
+}
+
+.link-button:hover:not(:disabled) {
+  color: #e6941f;
+}
+
+.link-button:disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.resend-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.resend-section p {
+  margin: 0 0 10px 0;
+  font-weight: 500;
+  color: #495057;
+}
+
+.help-section {
+  margin: 15px 0;
+}
+
+.help-section details {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.help-section summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.help-section ul {
+  margin: 10px 0;
+  padding-left: 20px;
+  color: #6c757d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.help-section li {
+  margin: 5px 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 10px;
+  }
+  
+  .auth-card {
+    max-width: 100%;
+  }
+  
+  .auth-form {
+    padding: 20px;
+  }
+  
+  .auth-logo {
+    padding: 20px;
+  }
+  
+  .auth-logo h1 {
+    font-size: 24px;
+  }
+  
+  .form-group input {
+    font-size: 16px; /* iOS zooming防止 */
+  }
+}
+
+/* フォーカス時のアクセシビリティ向上 */
+.auth-tab:focus,
+.submit-button:focus,
+.link-button:focus,
+.password-toggle:focus {
+  outline: 2px solid #ffa724;
+  outline-offset: 2px;
+}
+
+/* ローディング状態のアニメーション */
+.submit-button:disabled {
+  position: relative;
+}
+
+.submit-button:disabled:after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s ease infinite;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
